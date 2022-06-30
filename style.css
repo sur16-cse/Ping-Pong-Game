@@ -1,0 +1,72 @@
+*,*::after, *::before{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0%;
+    padding: 0%;
+    background-color: var(--background-color);
+    overflow: hidden;
+}
+
+:root{
+    --hue:600;
+    --saturation:60%;
+    --foreground-color:hsl(var(--hue),var(--saturation),80%);
+    --background-color:hsl(var(--hue),var(--saturation),20%);
+}
+
+
+.paddle{
+    --position:52;
+
+    position: absolute;
+    height: 17vh;
+    width: 2vh;
+    top:calc(var(--position)*1vh);
+    transform:translateY(-50%);
+    background-color: var(--foreground-color);
+}
+
+.paddle.left{
+    
+    left:0.5vw;
+}
+
+.paddle.right{
+    right:0.5vw;
+}
+
+.ball{
+    --x:50;
+    --y:50;
+    position: absolute;
+    height: 4.5vh;
+    width: 4.5vh;
+    border-radius: 50%;
+    top:calc(var(--y)*1vh);
+    left:calc(var(--x)*1vw);
+    transform:translateY(-50%,-50%);
+    background-color: var(--foreground-color);
+}
+
+.score{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 7vh;
+    color:var(--foreground-color);
+}
+
+.score >*{
+    flex-grow: 1;
+    flex-basis: 0;
+    padding:0 3vh;
+    margin:1vh 0;
+    opacity:0.5;
+}
+
+.score > :first-child{
+    text-align:right;
+    border-right:0.5vh solid var(--foreground-color);
+}
